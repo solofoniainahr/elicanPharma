@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div class="container d-flex justify-content-center">
+    <div class="col-md-8">
+
+        <div class="card my-5 shadow">
+            <div class="card-header">
+                {% include "partials/_header.html.twig" %}
+              
+            </div>
+            <div class="card-body p-4">
+                <div class="">
+                    
+                    <p class="card-text">Votre pharmacie (choisissez la pharmacie dans la liste ci-dessous)</p>
+                    {{ form_start(form) }}
+
+                        {{ form_row(form.socialReason, {'label': 'Raison Social','attr':{'placeholder': 'Raison social', 'data-target': path('app_home')}}) }}
+                        <div class="list"></div>
+                        
+                        <p class="card-text mt-2">
+                            Contact principal qui recevra les mails de confirmation de commande, les invitations aux webinaires…
+                        </p>
+
+                        <div class="row">
+                            <div class="col-md-6">{{ form_row(form.lastName, {'label': 'Nom','attr':{'placeholder': 'Nom'}}) }}</div>
+                            <div class="col-md-6">{{ form_row(form.firstName, {'label': 'Prénom','attr':{'placeholder': 'Prénom'}}) }}</div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-md-6">{{ form_row(form.email, {'label': 'Email','attr':{'placeholder': 'Email'}}) }}</div>
+                            <div class="col-md-6">{{ form_row(form.phone, {'label': 'Téléphone','attr':{'placeholder': 'Téléphone'}}) }}</div>
+                        </div>
+
+                        <button type="submit" class="btn float-end btn-primary">Valider</button>
+                        
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js') }}
+{% endblock %}
