@@ -59,7 +59,7 @@ class HomeController extends AbstractController
                 $data = file_get_contents("https://entreprise.data.gouv.fr/api/sirene/v1/full_text/$value");
                 dd($serializer->decode($data, 'json'));
             }
-            dd('tsisy');
+            
             return $this->json([], 200);
         }
     }
